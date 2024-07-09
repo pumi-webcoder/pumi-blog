@@ -1,0 +1,99 @@
+@use "../global" as *;
+
+/* FLOCSSのLAYOUT、OBJECT、COMPONENTのスタイルを定義 */
+
+/* レイアウトのスタイル */
+.l-section {
+  padding: 2rem 0;
+}
+
+.l-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* コンポーネントのスタイル */
+.p-archive-study__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.p-archive-study__item {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.p-archive-study__link {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+.p-archive-study__image {
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  margin-right: 1rem;
+}
+
+.p-archive-study__thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.p-archive-study__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.p-archive-study__term {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.p-archive-study__item-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.p-archive-study__date {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* ページネーションのスタイル */
+.c-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.c-pagination a {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  text-decoration: none;
+  color: #0073e6;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.c-pagination a:hover {
+  background-color: #0073e6;
+  color: #fff;
+}
+
+.c-pagination .current {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  background-color: #0073e6;
+  color: #fff;
+  border: 1px solid #0073e6;
+  border-radius: 5px;
+}

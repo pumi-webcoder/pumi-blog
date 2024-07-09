@@ -1,0 +1,20 @@
+@use "../global" as *;
+
+.l-section {
+  // --height-pc-header: 104px;
+  // --height-sp-header: 60px;
+  margin-top: var(--height-pc-header);
+  @include mq(sp) {
+    margin-top: var(--height-sp-header);
+  }
+  & + .l-section {
+    margin-top: 60px;
+    @include mq(sp) {
+      margin-top: 30px;
+    }
+  }
+
+  padding-top: size-calc-clamp(20, 60, 375, 1440);
+  padding-bottom: size-calc-clamp(30, 80, 375, 1440);
+  min-height: 300px;
+}
