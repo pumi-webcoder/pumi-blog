@@ -1,0 +1,176 @@
+@use "../global" as *;
+
+main#primary {
+  margin-top: var(--height-pc-header); // ヘッダーの高さ分の余白を追加
+  background-color: #f9f9f9; // 背景色を追加
+}
+
+article.study {
+  padding: 2rem; // 上下に2remの余白を追加
+  max-width: 900px; // 横幅を広げる
+  margin-inline: auto;
+
+  h1.entry-title {
+    font-size: 2.5em; // フォントサイズを大きく
+    margin-bottom: 20px;
+  }
+
+  h2.wp-block-heading {
+    font-size: 2em; // フォントサイズを大きく
+    margin-top: 67px;
+    padding-left: 1.5rem; // 左側に余白を追加
+    position: relative;
+    color: var(--main);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    border-bottom: 2px solid #ddd; // 下線を追加
+    padding-bottom: 0; // 下線との間隔を調整
+  }
+
+  h2.wp-block-heading::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 8px;
+    height: 52px;
+    background: var(--main);
+  }
+
+  h3.wp-block-heading {
+    font-size: 1.75em; // フォントサイズを大きく
+    margin-top: 40px;
+    padding-top: 20px;
+    border-bottom: 1px solid #ddd; // 下線を追加
+    color: var(--main);
+  }
+
+  .entry-content p {
+    font-size: 1.125em; // フォントサイズを大きく
+    line-height: 1.8; // 行間を広げる
+    margin-top: 25px;
+  }
+
+  .wp-block-quote {
+    border-left: 4px solid #ccc;
+    padding-left: 20px;
+    margin-top: 30px; // 上下の余白を広げる
+  }
+
+  .wp-block-quote p {
+    font-style: italic;
+    font-size: 1.125em; // フォントサイズを大きく
+  }
+  .wp-block-quote cite {
+    display: block;
+    margin-top: 15px; // 上の余白を広げる
+    font-size: 1em; // フォントサイズを大きく
+    color: #666;
+    white-space: nowrap; // テキストを折り返さない
+    overflow: hidden; // はみ出した部分を隠す
+    text-overflow: ellipsis; // テキストがはみ出した場合に省略記号を表示
+  }
+
+  .wp-block-quote cite a {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap; // テキストを折り返さない
+    overflow: hidden; // はみ出した部分を隠す
+    text-overflow: ellipsis; // テキストがはみ出した場合に省略記号を表示
+    vertical-align: bottom;
+  }
+
+  .wp-block-image {
+    margin-top: 30px; // 上下の余白を広げる
+  }
+
+  .wp-block-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  figure.wp-block-table {
+    width: 100%;
+    overflow-x: auto; // 横スクロールを有効にする
+  }
+
+  .wp-block-table table {
+    width: 100%; // テーブルの幅を100%に設定
+    border-collapse: collapse;
+    margin-top: 30px; // 上下の余白を広げる
+    @media (min-width: 1800px) {
+      min-width: 900px; // 必要に応じて最小幅を設定
+    }
+  }
+
+  .wp-block-table th,
+  .wp-block-table td {
+    border: 1px solid #ddd;
+    padding: 15px; // パディングを広げる
+    text-align: left;
+  }
+
+  // 課題１，結果1が折り返されないように調整
+  .wp-block-table td:first-child {
+    width: 5rem;
+  }
+
+  .wp-block-table th {
+    background-color: #f4f4f4;
+  }
+  /* テーブルの1行目（ヘッダー）の背景色とテキスト色 */
+  .wp-block-table tr:first-child {
+    background-color: #f4f4f4; // ヘッダーの背景色
+    color: #333; // ヘッダーのテキスト色
+    font-weight: bold; // ヘッダーのフォントを太字に
+  }
+
+  /* テーブルの行の背景色を交互に設定 */
+  .wp-block-table tr:nth-child(even) {
+    background-color: #ffffff; // 奇数行の背景色
+  }
+
+  .wp-block-table tr:nth-child(odd):not(:first-child) {
+    background-color: #f9f9f9; // 偶数行の背景色
+  }
+  .wp-block-group.is-layout-flex {
+    display: flex;
+    align-items: center;
+    margin-top: 30px; // 上下の余白を広げる
+  }
+
+  .wp-block-group.is-layout-flex .wp-block-image {
+    margin-right: 20px;
+  }
+
+  .wp-block-group.is-layout-flex .wp-block-image img {
+    border-radius: 50%;
+  }
+
+  .wp-block-group.is-layout-flex p {
+    margin: 0;
+  }
+
+  a {
+    color: #0073aa;
+    text-decoration: none;
+    font-weight: bold; // リンクを強調
+    display: inline-block;
+    &:hover,
+    &:focus {
+      color: #005177;
+      text-decoration: underline;
+    }
+  }
+
+  ol,
+  ul {
+    margin-left: 2rem; // 左の余白を追加
+    margin-top: 1rem; // 上の余白を追加
+  }
+  li {
+    margin-top: 0.5rem; // 各リストアイテムの上に余白を追加
+    list-style: disc;
+  }
+}

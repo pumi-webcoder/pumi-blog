@@ -1,7 +1,14 @@
 <?php get_header(); ?>
 
+<?php if (function_exists('bcn_display')) : ?>
+<!-- breadcrumb -->
+<div class="bread-crumb">
+	<?php bcn_display(); // BreadcrumbNavXTのパンくずを表示するための記述 ?>
+</div><!-- /breadcrumb -->
+<?php endif; ?>
+
 <section class="l-section p-archive-study">
-  <div class="l-container">
+  <div class="l-container p-archive-study__container">
     <h2 class="c-section-title">AI関連の学習一覧</h2>
 
     <?php
@@ -14,8 +21,13 @@
           'orderby' => 'modified',// 更新日で並べ替え
           'order' => 'DESC',// 降順
           'paged' => $paged,// ページネーション
-          'taxonomy' => 'ai', // タクソノミー名
-
+          'tax_query' => array(
+            array(
+                'taxonomy' => 'ai', // タクソノミー名
+                'field' => 'slug',
+                'terms' => 'doujou',
+            ),
+        ),
       );
       // WP_Queryオブジェクトを作成 
       $study_query = new WP_Query($args);
@@ -83,5 +95,6 @@
     ?>
   </div>
 </section>
+
 
 <?php get_footer(); ?>

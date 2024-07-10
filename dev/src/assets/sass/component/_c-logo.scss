@@ -1,0 +1,11 @@
+@use "../global" as *;
+
+.c-logo {
+  font-family: "Roboto", sans-serif; // Google FontsのRobotoを使用
+  font-size: 2rem; // フォントサイズを設定
+  font-weight: 700; // フォントの太さを設定
+  color: white; // テキスト色を設定
+  text-transform: uppercase; // テキストを大文字に変換
+  letter-spacing: 0.1em; // 文字間隔を設定
+  line-height: 1.2;
+}

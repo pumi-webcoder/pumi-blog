@@ -15,7 +15,7 @@
         array(
             'taxonomy' => 'ai', // タクソノミー名
             'field' => 'slug',
-            'terms' => 'doujou',
+            'terms' => 'ai実践道場',
         ),
       ),
     );
@@ -71,7 +71,7 @@
     
     <div class="p-study__more">
       <?php
-      $term = get_term_by('slug', 'doujou', 'ai'); // 'doujou'タームを取得
+      $term = get_term_by('slug', 'ai実践道場', 'ai'); // 'ai実践道場'タームを取得
       if ($term && !is_wp_error($term)) :
       ?>
           <a href="<?php echo esc_url(get_term_link($term)); ?>" 

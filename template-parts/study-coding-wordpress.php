@@ -1,6 +1,6 @@
 <section id="blog" class="l-section p-study">
   <div class="l-container">
-    <h2 class="c-section-title">AI関連の学習</h2>
+    <h2 class="c-section-title">WEB制作の学習(WordPress)</h2>
 
     <?php
     // クエリ引数の設定
@@ -13,9 +13,9 @@
       'paged' => $paged,// ページネーション
       'tax_query' => array(
         array(
-            'taxonomy' => 'ai', // タクソノミー名
+            'taxonomy' => 'coding', // タクソノミー名
             'field' => 'slug',
-            'terms' => 'doujou',
+            'terms' => 'wordpress',
         ),
       ),
     );
@@ -29,7 +29,7 @@
     <ul class="p-study__list">
     <?php
         while ($study_query->have_posts()) : $study_query->the_post();  // 投稿をループで取得
-        $study_terms = get_the_terms(get_the_ID(), 'ai');    // 投稿に関連付けられたstudyタームを取得（ここでは有無確認レベル）
+        $study_terms = get_the_terms(get_the_ID(), 'coding');    // 投稿に関連付けられたstudyタームを取得（ここでは有無確認レベル）
         $term_name = !is_wp_error($study_terms) && $study_terms ? esc_html($study_terms[0]->name) : '未分類'; // ターム名を取得（aiを取得、なければ未分類）
       ?>
       <li class="p-study__item">
@@ -71,7 +71,7 @@
     
     <div class="p-study__more">
       <?php
-      $term = get_term_by('slug', 'doujou', 'ai'); // 'doujou'タームを取得
+      $term = get_term_by('slug', 'wordpress', 'coding'); // 'doujou'タームを取得
       if ($term && !is_wp_error($term)) :
       ?>
           <a href="<?php echo esc_url(get_term_link($term)); ?>" 

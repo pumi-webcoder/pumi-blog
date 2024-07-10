@@ -59,3 +59,10 @@ $breakpoints: (
     letter-spacing: calc($spacing / $size * 1em);
   }
 }
+
+@mixin hover-transition {
+  transition: all 0.3s ease;
+  &:hover {
+    opacity: 0.8;
+  }
+}
