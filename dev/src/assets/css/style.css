@@ -1265,17 +1265,7 @@ article.study h2.wp-block-heading {
   letter-spacing: 0.08em;
   border-bottom: 2px solid #ddd;
   padding-bottom: 0;
-}
-article.study h2.wp-block-heading::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  left: 0;
-  width: 8px;
-  height: 52px;
-  background: var(--main);
+  border-left: 8px solid currentColor;
 }
 article.study h3.wp-block-heading {
   font-size: 1.75em;

@@ -25,9 +25,27 @@
 				<!-- グローバルナビ -->
 				<nav class="p-header__nav">
 					<ul class="p-header__nav--list">
-						<div class="p-header__nav--item">
+						<li class="p-header__nav--item">
+							 <!-- カスタム投稿aiのアーカイブ -->
+							 <a class="p-header__nav--link hover__underline--from-left" 
+							 href="
+							 <?php echo get_post_type_archive_link('ai'); ?>
+							 ">
+							 生成系AI
+							</a>
+						</li>
+						<li class="p-header__nav--item">
+							 <!-- カスタム投稿codingのアーカイブ -->
+							 <a class="p-header__nav--link hover__underline--from-left" 
+							 href="
+							 <?php echo get_post_type_archive_link('coding'); ?>
+							 ">
+							 WEB制作
+							</a>
+						</li>
+						<li class="p-header__nav--item">
 							<a class="p-header__nav--link hover__underline--from-left" href="https://twitter.com/pumi_webcoder" target="_blank">Twitter(X)</a>
-						</div>
+						</li>
 					</ul>
 				</nav>
 				<!-- ハンバーガーメニュー -->
@@ -41,10 +59,26 @@
 			</div>
 			<!-- ドロワーメニュー（ヘッダーコンテナの外） -->
 			<nav class="p-drawer__nav">
-				<ul class="header__nav--list">
-					<div class="p-drawer__nav--item">
+				<ul class="drawer__nav--list">
+					<li class="p-drawer__nav--item">
+						<!-- カスタム投稿aiのアーカイブ -->
+						<a class="p-drawer__nav--link" href="
+						<?php echo get_post_type_archive_link('ai'); ?>
+						">
+						生成系AI
+						</a>
+					</li>
+					<li class="p-drawer__nav--item">
+						<!-- カスタム投稿codingのアーカイブ -->
+						<a class="p-drawer__nav--link" href="
+						<?php echo get_post_type_archive_link('coding'); ?>
+						">
+						WEB制作
+						</a>
+					</li>
+					<li class="p-drawer__nav--item">
 						<a class="p-drawer__nav--link" href="https://twitter.com/pumi_webcoder">Twitter(X)</a>
-					</div>
+					</li>	
 				</ul>
 			</nav>
 		</div>

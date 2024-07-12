@@ -34,5 +34,3 @@ function add_class_to_next_post_link($output) {
     return $output;
 }
 add_filter('next_post_link', 'add_class_to_next_post_link');
-
-

@@ -8,26 +8,19 @@
 <?php endif; ?>
 
 <section class="l-section p-archive-study">
-  <div class="l-container p-archive-study__container">
+  <div class="l-container p-archive-container">
     <h2 class="c-section-title">AI関連の学習一覧</h2>
 
     <?php
       // クエリ引数の設定
       $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
       $args = array(
-          'post_type' =>        'study',// 投稿タイプ
+          'post_type' =>        'ai',// 投稿タイプ
           'posts_per_page' => 10,// 1ページあたりの投稿数
           'post_status' => 'publish',// 公開済みの投稿のみ
           'orderby' => 'modified',// 更新日で並べ替え
           'order' => 'DESC',// 降順
           'paged' => $paged,// ページネーション
-          'tax_query' => array(
-            array(
-                'taxonomy' => 'ai', // タクソノミー名
-                'field' => 'slug',
-                'terms' => 'doujou',
-            ),
-        ),
       );
       // WP_Queryオブジェクトを作成 
       $study_query = new WP_Query($args);

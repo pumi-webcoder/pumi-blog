@@ -8,14 +8,14 @@
 <?php endif; ?>
 
 <section class="l-section p-archive-study">
-  <div class="l-container p-archive-container">
-    <h2 class="c-section-title">AI関連の学習一覧</h2>
+  <div class="l-container p-archive-study__container">
+    <h2 class="c-section-title">htmlの学習一覧</h2>
 
     <?php
       // クエリ引数の設定
       $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
       $args = array(
-          'post_type' =>        'study',// 投稿タイプ
+          'post_type' =>        'coding',// 投稿タイプ
           'posts_per_page' => 10,// 1ページあたりの投稿数
           'post_status' => 'publish',// 公開済みの投稿のみ
           'orderby' => 'modified',// 更新日で並べ替え
@@ -23,8 +23,9 @@
           'paged' => $paged,// ページネーション
           'tax_query' => array(
             array(
-                'taxonomy' => 'ai', // タクソノミー名
-                'operator' => 'EXISTS', // タクソノミーに関連付けられた投稿を取得
+                'taxonomy' => 'genre', // タクソノミー名
+                'field' => 'slug',
+                'terms' => 'html',
             ),
         ),
       );
@@ -36,7 +37,7 @@
     <ul class="p-archive-study__list">
       <?php
         while ($study_query->have_posts()) : $study_query->the_post();  // 投稿をループで取得
-        $study_terms = get_the_terms(get_the_ID(), 'ai');    // 投稿に関連付けられたstudyタームを取得（ここでは有無確認レベル）
+        $study_terms = get_the_terms(get_the_ID(), 'html');    // 投稿に関連付けられたstudyタームを取得（ここでは有無確認レベル）
         $term_name = !is_wp_error($study_terms) && $study_terms ? esc_html($study_terms[0]->name) : '未分類'; // ターム名を取得（aiを取得、なければ未分類）
       ?>
         <li class="p-archive-study__item">

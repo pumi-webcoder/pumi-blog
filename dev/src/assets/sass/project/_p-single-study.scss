@@ -25,18 +25,19 @@ article.study {
     letter-spacing: 0.08em;
     border-bottom: 2px solid #ddd; // 下線を追加
     padding-bottom: 0; // 下線との間隔を調整
+    border-left: 8px solid currentColor;
   }
 
-  h2.wp-block-heading::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    width: 8px;
-    height: 52px;
-    background: var(--main);
-  }
+  // h2.wp-block-heading::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   left: 0;
+  //   width: 8px;
+  //   height: 52px;
+  //   background: var(--main);
+  // }
 
   h3.wp-block-heading {
     font-size: 1.75em; // フォントサイズを大きく

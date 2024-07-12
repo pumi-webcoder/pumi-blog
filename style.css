@@ -1198,6 +1198,7 @@ article.study h1.entry-title {
 
 article.study h2.wp-block-heading {
 	border-bottom: 2px solid #ddd;
+	border-left: 8px solid currentColor;
 	color: var(--main);
 	font-size: 2em;
 	font-weight: 700;
@@ -1206,17 +1207,6 @@ article.study h2.wp-block-heading {
 	padding-bottom: 0;
 	padding-left: 1.5rem;
 	position: relative;
-}
-
-article.study h2.wp-block-heading::before {
-	background: var(--main);
-	content: "";
-	height: 52px;
-	left: 0;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 8px;
 }
 
 article.study h3.wp-block-heading {

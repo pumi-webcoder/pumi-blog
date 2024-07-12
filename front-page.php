@@ -12,5 +12,4 @@
 <?php 
 	get_template_part('template-parts/to-top');
 ?>
-
 <?php get_footer(); ?>
