@@ -175,3 +175,16 @@ article.study {
     list-style: disc;
   }
 }
+
+// 通常投稿のアーカイブリンク
+a.archive-link {
+  color: #0073aa;
+  text-decoration: none;
+  font-weight: bold; // リンクを強調
+  display: inline-block;
+  &:hover,
+  &:focus {
+    color: #005177;
+    text-decoration: underline;
+  }
+}

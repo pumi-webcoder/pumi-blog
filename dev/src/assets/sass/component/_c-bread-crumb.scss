@@ -1,0 +1,13 @@
+@use "../global" as *;
+
+.c-bread-crumb {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  color: #c2c2c2;
+  flex-wrap: wrap;
+  gap: 1rem;
+  & > span:last-child {
+    color: var(--font);
+  }
+}

@@ -1,15 +1,18 @@
-<?php get_header(); ?>
-
 <?php 
-	get_template_part('template-parts/study-ai');
+	get_header(); 
 ?>
 <?php 
-	get_template_part('template-parts/study-coding-wordpress');
+	get_template_part('template-parts/background');
 ?>
 <?php 
-	get_template_part('template-parts/study-coding-html');
+	get_template_part('template-parts/latest-ai');
+?>
+<?php 
+	get_template_part('template-parts/latest-coding');
 ?>
 <?php 
 	get_template_part('template-parts/to-top');
 ?>
-<?php get_footer(); ?>
+<?php
+	get_footer(); 
+?>

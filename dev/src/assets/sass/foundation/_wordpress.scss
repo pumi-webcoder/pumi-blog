@@ -30,20 +30,3 @@
 .wpcf7-spinner {
   display: none;
 }
-
-.bread-crumb {
-  margin-top: 2rem;
-  font-size: 0.75rem;
-  padding-inline: 5rem;
-  display: flex;
-  align-items: center;
-  color: #c2c2c2;
-  flex-wrap: wrap;
-  @include mq(sp) {
-    margin-top: 0.75rem;
-    padding-inline: 2rem;
-  }
-  & > span:last-child {
-    color: var(--font);
-  }
-}

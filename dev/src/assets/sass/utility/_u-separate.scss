@@ -1,11 +1,12 @@
 @use "../global" as *;
 
-.u-separate {
-  margin-top: 24px;
-  margin-bottom: 24px;
+.u-separate--2rem {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
+
 // <hr class="u-separate">といった使い方
-.u-separeta--header {
+.u-separete--header {
   margin-top: var(--height-pc-header);
   @include mq(sp) {
     margin-top: var(--height-sp-header);

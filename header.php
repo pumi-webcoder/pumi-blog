@@ -28,23 +28,30 @@
 						<li class="p-header__nav--item">
 							 <!-- カスタム投稿aiのアーカイブ -->
 							 <a class="p-header__nav--link hover__underline--from-left" 
-							 href="
-							 <?php echo get_post_type_archive_link('ai'); ?>
-							 ">
+							 href="<?php echo get_post_type_archive_link('ai'); ?>">
 							 生成系AI
 							</a>
 						</li>
 						<li class="p-header__nav--item">
 							 <!-- カスタム投稿codingのアーカイブ -->
 							 <a class="p-header__nav--link hover__underline--from-left" 
-							 href="
-							 <?php echo get_post_type_archive_link('coding'); ?>
-							 ">
+							 href="<?php echo get_post_type_archive_link('coding'); ?>">
 							 WEB制作
 							</a>
 						</li>
 						<li class="p-header__nav--item">
-							<a class="p-header__nav--link hover__underline--from-left" href="https://twitter.com/pumi_webcoder" target="_blank">Twitter(X)</a>
+							<a class="p-header__nav--link hover__underline--from-left" 
+							href="https://pumi-webcoder.com/portfolio/" 
+							target="_blank">
+							Portfolio
+							</a>
+						</li>
+						<li class="p-header__nav--item">
+							<a class="p-header__nav--link hover__underline--from-left" 
+							href="https://twitter.com/pumi_webcoder" 
+							target="_blank">
+							Twitter(X)
+						</a>
 						</li>
 					</ul>
 				</nav>
@@ -62,18 +69,23 @@
 				<ul class="drawer__nav--list">
 					<li class="p-drawer__nav--item">
 						<!-- カスタム投稿aiのアーカイブ -->
-						<a class="p-drawer__nav--link" href="
-						<?php echo get_post_type_archive_link('ai'); ?>
-						">
+						<a class="p-drawer__nav--link" 
+						href="<?php echo get_post_type_archive_link('ai'); ?>">
 						生成系AI
 						</a>
 					</li>
 					<li class="p-drawer__nav--item">
 						<!-- カスタム投稿codingのアーカイブ -->
-						<a class="p-drawer__nav--link" href="
-						<?php echo get_post_type_archive_link('coding'); ?>
-						">
+						<a class="p-header__nav--link hover__underline--from-left" 
+						href="<?php echo get_post_type_archive_link('coding'); ?>">
 						WEB制作
+						</a>
+					</li>
+					<li class="p-drawer__nav--item">
+						<a class="p-drawer__nav--link" 
+						href="https://pumi-webcoder.com/portfolio/"
+						target="_blank">
+						Portfolio
 						</a>
 					</li>
 					<li class="p-drawer__nav--item">
