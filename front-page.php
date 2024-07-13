@@ -5,6 +5,9 @@
 	get_template_part('template-parts/background');
 ?>
 <?php 
+	get_template_part('template-parts/aside-btn');
+?>
+<?php 
 	get_template_part('template-parts/latest-ai');
 ?>
 <?php 

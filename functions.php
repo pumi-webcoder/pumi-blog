@@ -19,6 +19,7 @@ function my_script_init() {
     wp_enqueue_script("wow-js", get_template_directory_uri() . "/assets/js/wow.min.js", array(), filemtime(get_theme_file_path('/assets/js/wow.min.js')), true);
     wp_enqueue_script("gsap-cdn-js", "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js", array(), "3.12.5", true);
     wp_enqueue_script("app-js", get_template_directory_uri() . "/assets/js/app.min.js", array(), filemtime(get_theme_file_path('/assets/js/app.min.js')), true);
+    wp_enqueue_script("contact-js", get_template_directory_uri() . "/assets/js/contact-wordpress.min.js", array("jquery"), filemtime(get_theme_file_path('/assets/js/contact-wordpress.min.js')), true);
     wp_enqueue_script("my-js", get_template_directory_uri() . "/assets/js/script.js", array("jquery"), filemtime(get_theme_file_path('/assets/js/script.js')), true);
    
 }
@@ -38,3 +39,9 @@ function add_class_to_next_post_link($output) {
     return $output;
 }
 add_filter('next_post_link', 'add_class_to_next_post_link');
+
+// Contact Form 7で自動挿入されるPタグ、brタグを削除
+add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
+function wpcf7_autop_return_false() {
+  return false;
+} 

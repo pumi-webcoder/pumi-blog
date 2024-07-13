@@ -1,6 +1,7 @@
 <!--カテゴリ投稿全体のアーカイブ -->
 <?php
-    $title_name = 'WEB制作の記事一覧';
+    $title_name1 = 'WEB制作';
+    $title_name2 = 'の記事一覧';
     $post_type_name = 'coding';
     $taxonomy_name = 'genre';
     $term_name = 'wordpress';
@@ -19,7 +20,7 @@
 
 <section class="l-section p-archive-post <?php echo $section_loading_class; ?>">
   <div class="l-container p-archive-container">
-    <h2 class="c-section-title"><?php echo $title_name; ?></h2>
+  <h2 class="c-section-title"><?php echo $title_name1; ?><span class="u-hidden-pc"><br></span><?php echo $title_name2; ?></h2>
 
     <?php
       // クエリ引数の設定
@@ -62,6 +63,9 @@
               ?>
             </div>
             <div class="p-archive-post__content">
+              <?php $term_name = get_the_terms(get_the_ID(), $taxonomy_name);
+                  $term_name = $term_name[0]->name;
+              ?>
               <div class="p-archive__label">
                 <span class="p-archive-post__term"><?php echo $term_name; ?></span>
               </div>

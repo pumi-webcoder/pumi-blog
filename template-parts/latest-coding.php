@@ -1,6 +1,7 @@
 <!--最新の投稿 -->
 <?php
-    $title_name = 'WEB制作の記事';
+    $title_name1 = 'WEB制作';
+    $title_name2 = 'の最新記事';
     $post_type_name = 'coding';
     $taxonomy_name = 'genre';
     $term_name = 'ターム名無し';
@@ -10,7 +11,7 @@
 ?>
 <section class="l-section p-latest-post <?php echo $section_loading_section; ?>">
     <div class="l-container <?php echo $section_loading_container; ?>">
-        <h2 class="c-section-title"><?php echo $title_name; ?></h2>
+    <h2 class="c-section-title"><?php echo $title_name1; ?><span class="u-hidden-pc"><br></span><?php echo $title_name2; ?></h2>
     
         <!-- クエリ引数の設定 -->
         <?php

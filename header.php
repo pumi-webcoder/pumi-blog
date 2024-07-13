@@ -5,11 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- nodndexの記載 -->
-    <meta name="robots" content="noindex" />
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-
+	<meta name="google-site-verification" content="UIjvrE7ExkDIHMMpmfqzkcTC-Fd7-HsNI62bfQaP-0w" />
     <?php wp_head(); ?>
-    
+    <!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-TH0ZJ6GEBB"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-TH0ZJ6GEBB');
+	</script>
   </head>
 
   <body>
@@ -40,18 +47,27 @@
 							</a>
 						</li>
 						<li class="p-header__nav--item">
+							<!-- ポートフォリオ -->
 							<a class="p-header__nav--link hover__underline--from-left" 
-							href="https://pumi-webcoder.com/portfolio/" 
+							href="<?php echo esc_url(home_url('/')); ?>portfolio/" 
 							target="_blank">
 							Portfolio
 							</a>
 						</li>
 						<li class="p-header__nav--item">
+							<!-- Twitter（X)へのリンク -->
 							<a class="p-header__nav--link hover__underline--from-left" 
 							href="https://twitter.com/pumi_webcoder" 
 							target="_blank">
 							Twitter(X)
-						</a>
+							</a>
+						</li>
+						<li class="p-header__nav--item l-header__nav--contact">
+							<!-- お問い合わせ -->
+							<a class="p-header__nav--link hover__underline--from-left" 
+							href="<?php echo esc_url(home_url('/')); ?>contact/">
+							お問い合わせ
+							</a>
 						</li>
 					</ul>
 				</nav>
@@ -65,7 +81,7 @@
 				</div>
 			</div>
 			<!-- ドロワーメニュー（ヘッダーコンテナの外） -->
-			<nav class="p-drawer__nav">
+			<nav class="l-drawer__nav p-drawer__nav">
 				<ul class="drawer__nav--list">
 					<li class="p-drawer__nav--item">
 						<!-- カスタム投稿aiのアーカイブ -->
@@ -76,21 +92,33 @@
 					</li>
 					<li class="p-drawer__nav--item">
 						<!-- カスタム投稿codingのアーカイブ -->
-						<a class="p-header__nav--link hover__underline--from-left" 
+						<a class="p-drawer__nav--link hover__underline--from-left" 
 						href="<?php echo get_post_type_archive_link('coding'); ?>">
 						WEB制作
 						</a>
 					</li>
 					<li class="p-drawer__nav--item">
+						<!-- ポートフォリオ -->
 						<a class="p-drawer__nav--link" 
-						href="https://pumi-webcoder.com/portfolio/"
+						href="<?php echo esc_url(home_url('/')); ?>portfolio/"
 						target="_blank">
 						Portfolio
 						</a>
 					</li>
 					<li class="p-drawer__nav--item">
-						<a class="p-drawer__nav--link" href="https://twitter.com/pumi_webcoder">Twitter(X)</a>
+						<!-- Twitter（X)へのリンク -->
+						<a class="p-drawer__nav--link" 
+						href="https://twitter.com/pumi_webcoder">
+						Twitter(X)
+						</a>
 					</li>	
+					<li class="p-drawer__nav--item">
+						<!-- お問い合わせ -->
+						<a class="p-drawer__nav--link" 
+						href="<?php echo esc_url(home_url('/')); ?>contact/">
+						お問い合わせ
+						</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

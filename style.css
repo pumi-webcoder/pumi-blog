@@ -1,6 +1,6 @@
 :root {
 	--main: #77f;
-	--sub: #cff;
+	--sub: #eef;
 	--font: #333;
 	--lightgray: #6c6e6f;
 	--accent: red;
@@ -12,14 +12,6 @@
 	--drawer-bg-sp: linear-gradient(to bottom, #00f, #80f, #808);
 	--drawer-bg-sp: #000;
 	--bg-dark: #4a4a4a;
-	--clip-triangle-top: polygon(50% 0, 100% 100%, 0 100%);
-	--clip-triangle-bottom: polygon(0 0, 100% 0, 50% 100%);
-	--clip-triangle-right: polygon(0 0, 100% 50%, 0 100%);
-	--clip-triangle-left: polygon(0 50%, 100% 0, 100% 100%);
-	--clip-triangle-lower-left: polygon(0 0, 100% 100%, 0 100%);
-	--clip-triangle-upper-left: polygon(0 0, 100% 0, 0 100%);
-	--clip-triangle-lower-right: polygon(100% 0, 100% 100%, 0 100%);
-	--clip-triangle-upper-right: polygon(0 0, 100% 0, 100% 100%);
 	--layer-hamburger: 150;
 	--layer-drawer: 40;
 	--layer-totop: 100;
@@ -657,6 +649,25 @@ a {
 	padding: 2rem 5rem;
 }
 
+.l-aside-btn {
+	position: fixed;
+	right: 0;
+	top: 176px;
+	width: 92px;
+	z-index: var(--layer-aside);
+}
+
+.l-drawer__nav {
+	position: fixed;
+	right: -100%;
+	top: var(--height-sp-header);
+	z-index: var(--layer-drawer);
+}
+
+.drawer-open .l-drawer__nav {
+	right: 0;
+}
+
 .c-hamburger-btn {
 	background-color: transparent;
 	border: none;
@@ -797,12 +808,13 @@ a {
 }
 
 .c-button--primary {
-	background-color: #0073e6; /* プライマリカラー */
+	background-color: #0060a0;
 	color: #ffffff;
+	transition: all 0.3s ease;
 }
 
 .c-button--primary:hover {
-	background-color: #005bb5; /* ホバーカラー */
+	opacity: 0.5;
 }
 
 /* ページネーションのスタイル */
@@ -852,12 +864,33 @@ a {
 	color: #c2c2c2;
 	display: flex;
 	flex-wrap: wrap;
-	font-size: 0.75rem;
+	font-size: 1.2rem;
 	gap: 1rem;
 }
 
 .c-bread-crumb > span:last-child {
 	color: var(--font);
+}
+
+.c-aside-btn {
+	background: #0060a0;
+	border-radius: 20px 0px 0px 20px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 20px 16px 21px;
+	transition: all 0.3s ease;
+}
+
+.c-aside-btn:hover {
+	opacity: 0.5;
+}
+
+.c-aside-btn__label {
+	align-content: center;
+	display: flex;
+	flex-direction: column;
+	gap: 11px;
 }
 
 .p-header {
@@ -891,7 +924,7 @@ a {
 
 .p-header__nav--item {
 	color: white;
-	font-family: "Noto Sans JP";
+	font-family: "Roboto", sans-serif;
 	font-size: 1.5rem;
 }
 
@@ -911,7 +944,7 @@ a {
 
 .p-footer__copyright {
 	color: white;
-	font-family: "Noto Sans JP";
+	font-family: "Roboto", sans-serif;
 	font-size: clamp(16px, 16px + 4 * (100vw - 375px) / 1065, 20px);
 	font-weight: 400;
 	text-align: center;
@@ -921,22 +954,14 @@ a {
 	background: var(--header-bg-pc);
 	height: calc(100vh - var(--height-sp-header));
 	padding-inline: 15px;
-	position: fixed;
-	right: -100%;
 	text-align: center;
-	top: var(--height-sp-header);
 	transition: 0.5s;
 	width: 100%;
-	z-index: var(--layer-drawer);
-}
-
-.drawer-open .p-drawer__nav {
-	right: 0;
 }
 
 .p-drawer__nav--item {
 	color: white;
-	font-family: "Noto Sans JP";
+	font-family: "Roboto", sans-serif;
 	font-size: 30px;
 	font-weight: 400;
 }
@@ -1063,7 +1088,7 @@ a {
 }
 
 .p-latest-post__item:hover {
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 .p-latest-post__link {
@@ -1086,7 +1111,7 @@ a {
 }
 
 .p-latest-post__image img:hover {
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 .p-latest-post__content {
@@ -1121,7 +1146,7 @@ a {
 }
 
 .p-archive-post {
-	margin-top: 0;
+	margin-top: 0 !important;
 	text-align: center; /* コンポーネントのスタイル */
 }
 
@@ -1401,6 +1426,409 @@ article li {
 	z-index: -1;
 }
 
+.p-contact {
+	background: #fff;
+	text-align: center;
+}
+
+.p-contact__contents {
+	margin-top: 2rem;
+}
+
+.p-contact__form--item {
+	align-items: center;
+	display: flex;
+	gap: clamp(10px, 10px + 50 * (100vw - 375px) / 1065, 60px);
+	padding-block: clamp(13px, 13px + 15 * (100vw - 375px) / 1065, 28px);
+	text-align: left;
+}
+
+.p-contact__form--title {
+	align-items: center;
+	display: flex;
+	flex: 0 0 180px;
+	gap: clamp(12px, 12px + 4 * (100vw - 375px) / 1065, 16px);
+}
+
+.p-contact__form--title-text {
+	display: grid;
+	place-items: center;
+}
+
+.p-contact__form--require {
+	background-color: var(--accent);
+	border-radius: 4px;
+	color: #fff;
+	display: grid;
+	font-size: 10px;
+	font-weight: 700;
+	height: 23px;
+	place-items: center;
+	white-space: nowrap;
+	width: 36px;
+}
+
+.p-contact__form--input,
+.p-contact__form--selectbox-wrapper,
+.p-contact__form--date-wrapper {
+	flex: 1;
+}
+
+.p-contact__form--radio-wrapper {
+	align-items: center;
+	display: flex;
+	gap: clamp(10px, 10px + 22 * (100vw - 375px) / 1065, 32px);
+}
+
+.p-contact__form--item-privacy {
+	flex-direction: column;
+	gap: 20px;
+	justify-content: center;
+}
+
+.p-contact__wrapper-privacy {
+	align-items: center;
+	flex: revert;
+	justify-content: center;
+}
+
+.p-contact__btn {
+	margin-top: 10px;
+}
+
+.p-contact__btn:disabled {
+	background-color: #ccc;
+	background-image: revert;
+	border-color: transparent;
+	cursor: not-allowed;
+}
+
+.p-contact__message--success,
+.p-contact__message--error {
+	background: #fff;
+	display: none; /* 最初は非表示 */
+	font-size: 1rem;
+	opacity: 0;
+	padding: 20px;
+	text-align: center;
+	transform: translateY(20px);
+	transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.p-contact__message--success.show,
+.p-contact__message--error.show {
+	display: block;
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.p-contact__message--success {
+	color: blue;
+}
+
+.p-contact__message--error {
+	color: var(--accent);
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=date],
+select,
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: #f6f6f6;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: var(--font);
+	font-family: inherit;
+	font-weight: bold;
+	overflow: hidden;
+	padding: 14px 15px;
+	text-align: left;
+	width: 100%;
+}
+
+input[type=text]::-moz-placeholder,
+input[type=email]::-moz-placeholder,
+input[type=tel]::-moz-placeholder,
+input[type=date]::-moz-placeholder,
+select::-moz-placeholder,
+textarea::-moz-placeholder {
+	color: #c2c2c2;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+input[type=text]::placeholder,
+input[type=email]::placeholder,
+input[type=tel]::placeholder,
+input[type=date]::placeholder,
+select::placeholder,
+textarea::placeholder {
+	color: #c2c2c2;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=text]:active,
+input[type=email]:hover,
+input[type=email]:focus,
+input[type=email]:active,
+input[type=tel]:hover,
+input[type=tel]:focus,
+input[type=tel]:active,
+input[type=date]:hover,
+input[type=date]:focus,
+input[type=date]:active,
+select:hover,
+select:focus,
+select:active,
+textarea:hover,
+textarea:focus,
+textarea:active {
+	border-color: var(--main);
+}
+
+textarea {
+	min-height: 200px;
+	resize: vertical;
+}
+
+input[type=radio],
+input[type=checkbox] {
+	height: 1px;
+	position: absolute;
+	width: 1px;
+	clip: rect(0, 0, 0, 0);
+	overflow: hidden;
+}
+
+input[type=radio] + span,
+input[type=checkbox] + span {
+	align-items: center;
+	display: flex;
+	font-size: 0.875rem;
+	font-weight: 500;
+	padding-left: 32px;
+	position: relative;
+}
+
+input[type=radio] + span::before,
+input[type=checkbox] + span::before {
+	background: #f6f6f6;
+	border: 1px solid transparent;
+	content: "";
+	left: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+input[type=radio] + span::after,
+input[type=checkbox] + span::after {
+	content: "";
+	left: 6px;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+input[type=radio]:hover + span::before,
+input[type=radio]:focus + span::before,
+input[type=radio]:active + span::before,
+input[type=radio]:checked + span::before,
+input[type=checkbox]:hover + span::before,
+input[type=checkbox]:focus + span::before,
+input[type=checkbox]:active + span::before,
+input[type=checkbox]:checked + span::before {
+	border-color: var(--main);
+}
+
+input[type=radio]:checked + span::after,
+input[type=checkbox]:checked + span::after {
+	opacity: 1;
+}
+
+input[type=radio] + span::before {
+	border-radius: 50%;
+	height: 24px;
+	width: 24px;
+}
+
+input[type=radio] + span::after {
+	background: var(--main);
+	border-radius: 50%;
+	height: 12px;
+	width: 12px;
+}
+
+input[type=checkbox] + span::before {
+	height: 24px;
+	width: 24px;
+}
+
+input[type=checkbox] + span::after {
+	border-bottom: solid 2px var(--main);
+	border-left: solid 2px var(--main);
+	height: 8px;
+	transform: translateY(-70%) rotate(-45deg);
+	width: 13px;
+}
+
+select {
+	background: #f6f6f6 url(../img/select-arrow.svg) no-repeat right 12px center;
+}
+
+input[type=date] {
+	background: #f6f6f6 url(../img/icon-calender.svg) no-repeat right 12px center;
+	padding: 14px 16px;
+	position: relative;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+	height: 100%;
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.firefox input[type=date] {
+	background: revert;
+}
+
+input[type=date]::-webkit-datetime-edit-fields-wrapper {
+	display: none;
+}
+
+input[type=date]::before {
+	color: #c2c2c2;
+	content: attr(placeholder);
+	width: 100%;
+}
+
+input[type=date].is-input::-webkit-datetime-edit-fields-wrapper {
+	display: revert;
+}
+
+input[type=date].is-input::before {
+	display: none;
+}
+
+.error-message {
+	color: var(--accent);
+	display: none;
+	margin-top: 8px;
+}
+
+.p-contact__form--item-privacy input[type=checkbox] {
+	height: 1px;
+	position: absolute;
+	width: 1px;
+	clip: rect(0, 0, 0, 0);
+	overflow: hidden;
+}
+
+.privacy-span.checked::before,
+.privacy-span.hover::before,
+.privacy-span.active::before,
+.privacy-span.focus::before {
+	border-color: var(--main);
+}
+
+.privacy-span.checked::after {
+	opacity: 1;
+}
+
+.privacy-span {
+	font-size: clamp(12px, 12px + 2 * (100vw - 375px) / 1065, 14px);
+	padding-left: 32px;
+	position: relative;
+}
+
+.privacy-span::before {
+	background: #f6f6f6;
+	border: 1px solid transparent;
+	content: "";
+	height: 24px;
+	left: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 24px;
+}
+
+.privacy-span::after {
+	border-bottom: solid 2px var(--main);
+	border-left: solid 2px var(--main);
+	content: "";
+	height: 8px;
+	left: 6px;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	transform: translateY(-70%) rotate(-45deg);
+	width: 13px;
+}
+
+.p-privacy-policy {
+	background: white;
+	padding: 100px 20px;
+}
+
+.p-privacy-policy__title {
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 0em;
+	line-height: 1.6;
+	text-align: center;
+}
+
+.p-privacy-policy__content {
+	margin-top: 4rem;
+}
+
+.p-privacy-policy__body {
+	margin-top: 50px;
+}
+
+.p-privacy-policy__box {
+	margin-top: 30px;
+}
+
+.p-privacy-policy__title-sub {
+	font-size: 1.5rem;
+	font-weight: 700;
+	letter-spacing: 0em;
+	line-height: 1.6;
+}
+
+.p-privacy-policy__text {
+	margin-top: 10px;
+}
+
+.p-privacy-policy__detail {
+	list-style: inside;
+	margin-left: 1rem;
+}
+
+.p-privacy-policy__submit {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.p-privacy-policy__btn {
+	margin-top: 2rem;
+	max-width: 200px;
+	width: 100%;
+}
+
 .u-separate--2rem {
 	margin-bottom: 2rem;
 	margin-top: 2rem;
@@ -1412,6 +1840,14 @@ article li {
 
 .u-hidden-all {
 	display: none !important;
+}
+
+.u-is-pc {
+	display: none;
+}
+
+.u-is-sp {
+	display: none;
 }
 
 .u-hidden-visually {
@@ -1468,11 +1904,11 @@ strong.color-accent {
 	margin-left: 0;
 }
 
-.p-header__hamburger--button {
+.l-drawer__nav {
 	display: none;
 }
 
-.p-drawer__nav {
+.p-header__hamburger--button {
 	display: none;
 }
 
@@ -1534,12 +1970,72 @@ strong.color-accent {
 	top: var(--height-sp-header);
 }
 
+.p-contact__form--item {
+	align-items: revert;
+	flex-direction: column;
+	gap: clamp(10px, 10px + 20 * (100vw - 375px) / 1065, 30px);
+}
+
+.p-contact__form--title {
+	flex: revert;
+}
+
+.p-contact__form--radio-wrapper {
+	align-items: revert;
+	flex-direction: column;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=date],
+select,
+textarea {
+	padding: 10px;
+}
+
+textarea {
+	min-height: 160px;
+}
+
+input[type=radio] + span,
+input[type=checkbox] + span {
+	padding-left: 24px;
+}
+
+input[type=radio] + span::after,
+input[type=checkbox] + span::after {
+	left: 4px;
+}
+
+input[type=radio] + span::before {
+	height: 16px;
+	width: 16px;
+}
+
+input[type=radio] + span::after {
+	height: 8px;
+	width: 8px;
+}
+
+select {
+	background-position: right 9px center;
+}
+
+input[type=date] {
+	background-position: right 9px center;
+}
+
 .u-separete--header {
 	margin-top: var(--height-sp-header);
 }
 
 .u-hidden-sp {
 	display: none !important;
+}
+
+.u-is-sp {
+	display: revert !important;
 }
 
 }
@@ -1560,12 +2056,27 @@ strong.color-accent {
 	opacity: 0.8;
 }
 
+.p-contact__btn:disabled:hover,
+.p-contact__btn:disabled:focus {
+	background-color: #ccc;
+	box-shadow: 0px 4px 0px 0px currentColor;
+	transform: revert;
+}
+
 }
 
 @media (1024px <= width) {
 
+.p-privacy-policy {
+	padding: 100px 40px;
+}
+
 .u-hidden-pc {
 	display: none !important;
+}
+
+.u-is-pc {
+	display: revert !important;
 }
 
 }
@@ -1587,6 +2098,14 @@ strong.color-accent {
 
 article .wp-block-table table {
 	min-width: 900px;
+}
+
+}
+
+@media screen and (max-width: 1024px) {
+
+.l-header__nav--contact {
+	display: none;
 }
 
 }

@@ -11,3 +11,9 @@
   width: 100%;
   z-index: var(--layer-header);
 }
+
+.l-header__nav--contact {
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}

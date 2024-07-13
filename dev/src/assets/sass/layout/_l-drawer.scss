@@ -1,0 +1,15 @@
+@use "../global" as *;
+
+.l-drawer__nav {
+  @include mq(tab-pc) {
+    display: none;
+  }
+
+  position: fixed;
+  z-index: var(--layer-drawer);
+  top: var(--height-sp-header);
+  right: -100%;
+  .drawer-open & {
+    right: 0;
+  }
+}

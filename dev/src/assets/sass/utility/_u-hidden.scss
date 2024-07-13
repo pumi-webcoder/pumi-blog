@@ -17,3 +17,17 @@
     display: none !important;
   }
 }
+
+.u-is-pc {
+  display: none;
+  @include mq(pc) {
+    display: revert !important;
+  }
+}
+
+.u-is-sp {
+  display: none;
+  @include mq(sp) {
+    display: revert !important;
+  }
+}

@@ -1,6 +1,7 @@
 <!--カテゴリ投稿全体のアーカイブ -->
 <?php
-    $title_name = '生成系AIの記事一覧';
+    $title_name1 = '生成系AIの';
+    $title_name2 = '記事一覧';
     $post_type_name = 'ai';
     $taxonomy_name = 'study';
     $term_name = 'ターム名無し';
@@ -19,7 +20,7 @@
 
 <section class="l-section p-archive-post">
   <div class="l-container p-archive-container">
-    <h2 class="c-section-title"><?php echo $title_name; ?></h2>
+    <h2 class="c-section-title"><?php echo $title_name1; ?><span class="u-hidden-pc"><br></span><?php echo $title_name2; ?></h2>
 
     <?php
       // クエリ引数の設定

@@ -1,0 +1,12 @@
+@use "../global" as *;
+
+.l-aside-btn {
+  position: fixed;
+  z-index: var(--layer-aside);
+  top: 176px;
+  right: 0;
+  width: 92px;
+  // @include mq(sp) {
+  //   display: none;
+  // }
+}

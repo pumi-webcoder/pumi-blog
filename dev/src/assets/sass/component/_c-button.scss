@@ -12,11 +12,8 @@
   transition: background-color 0.3s ease;
 
   &--primary {
-    background-color: #0073e6; /* プライマリカラー */
+    background-color: $color-primary;
     color: #ffffff;
-
-    &:hover {
-      background-color: #005bb5; /* ホバーカラー */
-    }
+    @include hover-transition;
   }
 }

@@ -63,6 +63,6 @@ $breakpoints: (
 @mixin hover-transition {
   transition: all 0.3s ease;
   &:hover {
-    opacity: 0.8;
+    opacity: 0.5;
   }
 }
