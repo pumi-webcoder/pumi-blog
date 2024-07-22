@@ -768,7 +768,7 @@ a {
 
 .c-section-title {
 	display: inline-block;
-	font-size: 24px;
+	font-size: clamp(18px, 18px + 6 * (100vw - 375px) / 1065, 24px);
 	font-weight: 700;
 	padding-inline: 95px;
 	position: relative;
@@ -1225,21 +1225,26 @@ article {
 	padding: 2rem; /* テーブルの1行目（ヘッダー）の背景色とテキスト色 */ /* テーブルの行の背景色を交互に設定 */
 }
 
+article .wp-block-heading + p {
+	padding-inline: 1rem;
+	padding-top: 1rem;
+}
+
 article h1.entry-title {
 	font-size: 2.5em;
 	margin-bottom: 20px;
 }
 
 article h2.wp-block-heading {
-	border-bottom: 2px solid #ddd;
+	border-bottom: 2px solid currentColor;
 	border-left: 8px solid currentColor;
 	color: var(--main);
 	font-size: 2em;
 	font-weight: 700;
 	letter-spacing: 0.08em;
-	margin-top: 67px;
+	margin-top: 2rem;
 	padding-bottom: 0;
-	padding-left: 1.5rem;
+	padding-left: 1rem;
 	position: relative;
 }
 
@@ -1247,20 +1252,36 @@ article h3.wp-block-heading {
 	border-bottom: 1px solid #ddd;
 	color: var(--main);
 	font-size: 1.75em;
-	margin-top: 40px;
-	padding-top: 20px;
+	font-weight: 700;
+	margin-top: 2rem;
+	padding-left: 1rem;
+}
+
+article h4.wp-block-heading {
+	border-bottom: 1px solid #ddd;
+	color: var(--main);
+	font-size: 1.5em;
+	margin-top: 1rem;
+	padding-left: 1rem;
+}
+
+article h5.wp-block-heading {
+	border-bottom: 1px solid #ddd;
+	color: var(--main);
+	font-size: 1.25em;
+	margin-top: 1rem;
+	padding-left: 1rem;
 }
 
 article .entry-content p {
-	font-size: 1.125em;
-	line-height: 1.8;
-	margin-top: 25px;
+	font-size: 1.5rem;
 }
 
 article .wp-block-quote {
-	border-left: 4px solid #ccc;
+	background-color: #fffacd;
+	border: 4px solid #ccc;
 	margin-top: 30px;
-	padding-left: 20px;
+	padding: 20px;
 }
 
 article .wp-block-quote p {
@@ -1303,19 +1324,24 @@ article figure.wp-block-table {
 
 article .wp-block-table table {
 	border-collapse: collapse;
-	margin-top: 30px;
+	margin-top: 1rem;
 	width: 100%;
 }
 
 article .wp-block-table th,
 article .wp-block-table td {
 	border: 1px solid #ddd;
+	font-size: 1.5rem;
 	padding: 15px;
 	text-align: left;
 }
 
-article .wp-block-table td:first-child {
+article .wp-block-table.width5rem td:first-child {
 	width: 5rem;
+}
+
+article .wp-block-table.width7rem td:first-child {
+	width: 7rem;
 }
 
 article .wp-block-table th {
@@ -1373,9 +1399,22 @@ article ul {
 	margin-top: 1rem;
 }
 
-article li {
+article ol + p,
+article ul + p {
 	list-style: disc;
 	margin-top: 0.5rem;
+}
+
+article li {
+	font-size: 1.5rem;
+	list-style: disc;
+	margin-top: 0.5rem;
+}
+
+article .accent {
+	background-color: #f9f9f9;
+	color: red;
+	font-weight: bold;
 }
 
 /* ローディング画面の背景 */
@@ -1417,7 +1456,7 @@ article li {
 }
 
 .p-bg {
-	background: url(./assets/img/img_fv.webp) top center/cover no-repeat;
+	background: url(./assets/img/pumiblog-bg.webp) top center/cover no-repeat;
 	height: calc(100vh - var(--height-pc-header));
 	position: fixed;
 	right: 0;
@@ -1940,6 +1979,10 @@ strong.color-accent {
 	font-size: 1rem;
 }
 
+.c-aside-btn {
+	display: none;
+}
+
 .p-header {
 	background: blue;
 }
@@ -1954,6 +1997,83 @@ strong.color-accent {
 
 .p-footer__contents {
 	height: var(--height-sp-footer);
+}
+
+main#primary {
+	margin-top: var(--height-sp-header);
+}
+
+article {
+	padding: 1rem;
+}
+
+article h1.entry-title {
+	font-size: 1.5rem;
+}
+
+article h2.wp-block-heading {
+	font-size: 1.25em;
+}
+
+article h3.wp-block-heading {
+	font-size: 1.25em;
+}
+
+article h4.wp-block-heading {
+	font-size: 1.125em;
+}
+
+article .entry-content p {
+	font-size: 1em;
+}
+
+article .wp-block-quote {
+	margin-top: 20px;
+	padding-left: 15px;
+}
+
+article .wp-block-quote p {
+	font-size: 0.875em;
+}
+
+article .wp-block-quote cite {
+	font-size: 0.875em;
+	margin-top: 10px;
+}
+
+article .wp-block-image {
+	margin-top: 20px;
+}
+
+article .wp-block-table th,
+article .wp-block-table td {
+	font-size: 1rem;
+	padding: 10px;
+}
+
+article .wp-block-group.is-layout-flex {
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+article .wp-block-group.is-layout-flex .wp-block-image {
+	margin-bottom: 10px;
+	margin-right: 0;
+}
+
+article ol,
+article ul {
+	margin-top: 0.5rem;
+}
+
+article ol + p,
+article ul + p {
+	margin-top: 0.25rem;
+}
+
+article li {
+	font-size: 1rem;
+	margin-top: 0.25rem;
 }
 
 .p-loading__spiner {

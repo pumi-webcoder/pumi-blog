@@ -92,7 +92,7 @@
 					</li>
 					<li class="p-drawer__nav--item">
 						<!-- カスタム投稿codingのアーカイブ -->
-						<a class="p-drawer__nav--link hover__underline--from-left" 
+						<a class="p-drawer__nav--link" 
 						href="<?php echo get_post_type_archive_link('coding'); ?>">
 						WEB制作
 						</a>

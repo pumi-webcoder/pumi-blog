@@ -1,7 +1,7 @@
 @use "../global" as *;
 
 .c-section-title {
-  font-size: 24px;
+  font-size: size-calc-clamp(18, 24, 375, 1440);
   font-weight: 700;
   display: inline-block;
   position: relative;

@@ -1276,6 +1276,11 @@ main#primary {
   margin-top: var(--height-pc-header);
   background-color: #f9f9f9;
 }
+@media (width <= 767px) {
+  main#primary {
+    margin-top: var(--height-sp-header);
+  }
+}
 
 article {
   padding: 2rem;
@@ -1284,9 +1289,22 @@ article {
   /* テーブルの1行目（ヘッダー）の背景色とテキスト色 */
   /* テーブルの行の背景色を交互に設定 */
 }
+@media (width <= 767px) {
+  article {
+    padding: 1rem;
+  }
+}
+article .wp-block-heading + p {
+  padding: 1rem;
+}
 article h1.entry-title {
   font-size: 2.5em;
   margin-bottom: 20px;
+}
+@media (width <= 767px) {
+  article h1.entry-title {
+    font-size: 1.5em;
+  }
 }
 article h2.wp-block-heading {
   font-size: 2em;
@@ -1300,26 +1318,71 @@ article h2.wp-block-heading {
   padding-bottom: 0;
   border-left: 8px solid currentColor;
 }
+@media (width <= 767px) {
+  article h2.wp-block-heading {
+    font-size: 1.25em;
+    margin-top: 40px;
+    padding-left: 1rem;
+  }
+}
 article h3.wp-block-heading {
   font-size: 1.75em;
+  font-weight: 700;
   margin-top: 40px;
   padding-top: 20px;
   border-bottom: 1px solid #ddd;
   color: var(--main);
 }
+@media (width <= 767px) {
+  article h3.wp-block-heading {
+    font-size: 1.25em;
+    margin-top: 30px;
+    padding-top: 15px;
+  }
+}
+article h4.wp-block-heading {
+  font-size: 1.5em;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-bottom: 1px solid #ddd;
+  color: var(--main);
+}
+@media (width <= 767px) {
+  article h4.wp-block-heading {
+    font-size: 1.125em;
+    margin-top: 20px;
+    padding-top: 10px;
+  }
+}
 article .entry-content p {
   font-size: 1.125em;
   line-height: 1.8;
-  margin-top: 25px;
+}
+@media (width <= 767px) {
+  article .entry-content p {
+    font-size: 1em;
+  }
 }
 article .wp-block-quote {
-  border-left: 4px solid #ccc;
-  padding-left: 20px;
+  border: 4px solid #ccc;
+  padding: 20px;
   margin-top: 30px;
+  background-color: #fffacd;
+}
+@media (width <= 767px) {
+  article .wp-block-quote {
+    padding-left: 15px;
+    margin-top: 20px;
+  }
 }
 article .wp-block-quote p {
   font-style: italic;
   font-size: 1.125em;
+}
+@media (width <= 767px) {
+  article .wp-block-quote p {
+    font-size: 0.875em;
+  }
 }
 article .wp-block-quote cite {
   display: block;
@@ -1329,6 +1392,12 @@ article .wp-block-quote cite {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+@media (width <= 767px) {
+  article .wp-block-quote cite {
+    font-size: 0.875em;
+    margin-top: 10px;
+  }
 }
 article .wp-block-quote cite a {
   display: inline-block;
@@ -1340,6 +1409,11 @@ article .wp-block-quote cite a {
 }
 article .wp-block-image {
   margin-top: 30px;
+}
+@media (width <= 767px) {
+  article .wp-block-image {
+    margin-top: 20px;
+  }
 }
 article .wp-block-image img {
   max-width: 100%;
@@ -1359,11 +1433,22 @@ article .wp-block-table table {
     min-width: 900px;
   }
 }
+@media (width <= 767px) {
+  article .wp-block-table table {
+    margin-top: 20px;
+  }
+}
 article .wp-block-table th,
 article .wp-block-table td {
   border: 1px solid #ddd;
   padding: 15px;
   text-align: left;
+}
+@media (width <= 767px) {
+  article .wp-block-table th,
+  article .wp-block-table td {
+    padding: 10px;
+  }
 }
 article .wp-block-table td:first-child {
   width: 5rem;
@@ -1391,8 +1476,23 @@ article .wp-block-group.is-layout-flex {
           align-items: center;
   margin-top: 30px;
 }
+@media (width <= 767px) {
+  article .wp-block-group.is-layout-flex {
+    margin-top: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 article .wp-block-group.is-layout-flex .wp-block-image {
   margin-right: 20px;
+}
+@media (width <= 767px) {
+  article .wp-block-group.is-layout-flex .wp-block-image {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 article .wp-block-group.is-layout-flex .wp-block-image img {
   border-radius: 50%;
@@ -1415,9 +1515,21 @@ article ul {
   margin-left: 2rem;
   margin-top: 1rem;
 }
+@media (width <= 767px) {
+  article ol,
+  article ul {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+  }
+}
 article li {
   margin-top: 0.5rem;
   list-style: disc;
+}
+@media (width <= 767px) {
+  article li {
+    margin-top: 0.25rem;
+  }
 }
 
 /* ローディング画面の背景 */
@@ -1524,7 +1636,7 @@ article li {
   }
 }
 .p-bg {
-  background: url(./assets/img/img_fv.webp) top center/cover no-repeat;
+  background: url(./assets/img/pumiblog-bg.webp) top center/cover no-repeat;
   position: fixed;
   top: var(--height-pc-header);
   height: calc(100vh - var(--height-pc-header));

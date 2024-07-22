@@ -15,4 +15,7 @@
     gap: 11px;
     align-content: center;
   }
+  @include mq(sp) {
+    display: none;
+  }
 }
