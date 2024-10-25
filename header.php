@@ -47,6 +47,13 @@
 							</a>
 						</li>
 						<li class="p-header__nav--item">
+							 <!-- カスタム投稿codingのアーカイブ -->
+							 <a class="p-header__nav--link hover__underline--from-left" 
+							 href="<?php echo get_post_type_archive_link('code_stock'); ?>">
+							 CodeStock
+							</a>
+						</li>
+						<li class="p-header__nav--item">
 							<!-- ポートフォリオ -->
 							<a class="p-header__nav--link hover__underline--from-left" 
 							href="<?php echo esc_url(home_url('/')); ?>portfolio/" 

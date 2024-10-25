@@ -1,0 +1,10 @@
+.vscode
+node_modules
+gulpfile.js
+*.json
+
+*uploads*
+*test*
+*taihi*
+*trash*
+*copy*
