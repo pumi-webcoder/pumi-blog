@@ -7,31 +7,47 @@
     max-width: 800px;
   }
 
-  /* コンポーネントのスタイル */
   &__list {
     list-style: none;
     padding: 0;
     margin-top: 2rem;
     text-align: left;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1rem;
   }
 
   &__item {
-    display: flex;
-    border-bottom: 1px solid #ddd;
-    padding: 1rem 0;
+    // display: flex;
+    // border-bottom: 1px solid #ddd;
+    // padding: 1rem 0;
+    background: #ddd;
+    opacity: 0.8;
+    @media (hover: hover) {
+      &:hover {
+        // background: #ccc;
+        opacity: 1;
+      }
+    }
   }
 
   &__link {
+    border: 1px solid black;
+    padding: 1rem;
     display: flex;
     text-decoration: none;
     color: inherit;
   }
 
   &__image {
-    flex-shrink: 0;
-    width: 150px;
+    flex: 0 0 150px;
     height: 150px;
     margin-right: 1rem;
+    .code-result {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
   }
 
   &__thumbnail {

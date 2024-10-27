@@ -17,6 +17,7 @@
     min-height: 36px;
     flex: 0 0 100px;
   }
+
   .code-result {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -48,6 +49,7 @@
     border-radius: 3px;
     cursor: pointer;
     // margin-left: 10px;
+    flex: 0 0 65px;
     min-height: 36px;
     &:hover {
       background-color: #e0e0e0;
@@ -71,6 +73,7 @@
     // }
     .c-summary {
       border-radius: 3px;
+
       &__container {
         background: white;
         // width: 100%;

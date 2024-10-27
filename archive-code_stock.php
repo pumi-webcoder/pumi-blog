@@ -1,7 +1,7 @@
 <!--カテゴリ投稿全体のアーカイブ -->
 <?php
-    $title_name1 = 'WEB制作';
-    $title_name2 = 'の記事一覧';
+    $title_name1 = 'コードストック';
+    $title_name2 = 'の一覧';
     $post_type_name = 'code_stock';
     $taxonomy_name = 'code_genre';
     $term_name = 'code_stock';
@@ -56,7 +56,7 @@
                 else :
                   echo '<img
                     src="'. $thumbnail_url .'"
-                    alt="AI"
+                    alt=""
                     class="p-archive-post__thumbnail"
                   />'; 
                 endif;

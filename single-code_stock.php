@@ -13,38 +13,16 @@ get_header();
         $js_code = get_field('js_code');
         $description = get_field('code_description');
         $url = get_field('code_url');
-        // コード入力がない場合はスペースとする(if文で判定）
-        if (!$html_code) {
-            $html_code = '';
-        }
-        if (!$css_code) {
-            $css_code = '';
-        }
-        if (!$sass_code) {
-            $sass_code = '';
-        }
-        if (!$js_code) {
-            $js_code = '';
-        }
-        if (!$description) {
-            $description = '';
-        }
-        if (!$url) {
-            $url = '';
-        }
-        $all_code_css = $html_code . "<style>\n" . $css_code . "\n</style>\n" . "<script>\n" . $js_code . "\n</script>";
-        $all_code_sass = $html_code . "<style>\n" . $sass_code . "\n</style>\n" . "<script>\n" . $js_code . "\n</script>";
-        ?>
-    <?php endwhile;?>     
+    ?>
+
 
     <div class="code-sample">
         <div class="code-sample-wrapper">
             <h3>実装結果 :</h3>
-            <div class="code-result">
-                <?php echo $html_code; ?>
-                <style><?php echo $css_code; ?></style>
-                <script><?php echo $js_code; ?></script>
-            </div>
+            <?php
+                get_template_part('template-parts/get-code-results');
+            ?>
+
         </div>
 
         <?php if ($description) : ?>
@@ -64,11 +42,29 @@ get_header();
         <div class="code-sample-wrapper">
             <h3>コード全量 : </h3>
             <button class="copy-button" data-target="all-code">コピー</button>
-            <?php if ($sass_code) : ?>
-<pre class="u-hidden-visually"><code id="all-code" class="language-all"><?php echo esc_html($all_code_sass); ?></code></pre>
-            <?php else : ?>
-<pre class="u-hidden-visually"><code id="all-code" class="language-all"><?php echo esc_html($all_code_css); ?></code></pre>
-            <?php endif; ?>
+            <?php
+            if ($sass_code) {
+                $all_code = 
+                $html_code . 
+                "\n<style>\n" . 
+                $sass_code . 
+                "\n</style>\n" . 
+                "\n<script>\n" . 
+                $js_code . 
+                "\n</script>";
+            } else {
+                $all_code = 
+                $html_code . 
+                "\n<style>\n" . 
+                $css_code . 
+                "\n</style>\n" . 
+                "\n<script>\n" . 
+                $js_code . 
+                "\n</script>";
+            }
+            ?>
+
+<pre class="u-hidden-visually"><code id="all-code" class="language-all"><?php echo esc_html($all_code); ?></code></pre>
         </div>
 
         <div class="code-sample-wrapper">
@@ -82,6 +78,7 @@ get_header();
             </details>
         </div>
 
+        <?php if ($css_code) : ?>
         <div class="code-sample-wrapper">
             <h3>CSS : </h3>
             <button class="copy-button" data-target="css-code">コピー</button>
@@ -92,6 +89,7 @@ get_header();
                 </div>
             </details>
         </div>
+        <?php endif; ?>
 
         <?php if ($sass_code) : ?>
         <div class="code-sample-wrapper">
@@ -106,6 +104,7 @@ get_header();
         </div>
         <?php endif; ?>
 
+        <?php if ($js_code) : ?>
         <div class="code-sample-wrapper">
             <h3>JavaScript : </h3>
             <button class="copy-button" data-target="js-code">コピー</button>
@@ -116,7 +115,10 @@ get_header();
                 </div>
             </details>
         </div>
+        <?php endif; ?>
+
     </div>
+    <?php endwhile;?>     
 </main>
 
 <?php
