@@ -119,6 +119,12 @@ get_header();
 
     </div>
     <?php endwhile;?>     
+    <!-- 一覧に戻るボタン -->
+    <div class="codestock-back-btn">
+        <a class="c-btn" href="<?php echo get_post_type_archive_link('code_stock'); ?>" >一覧に戻る</a>
+    </div>
+
+    
 </main>
 
 <?php

@@ -19,7 +19,7 @@
 <?php endif; ?>
 
 <section class="l-section p-archive-post <?php echo $section_loading_class; ?>">
-  <div class="l-container p-archive-container">
+  <div class="l-container p-archive-post__container">
   <h2 class="c-section-title"><?php echo $title_name1; ?><span class="u-hidden-pc"><br></span><?php echo $title_name2; ?></h2>
 
     <?php
@@ -27,7 +27,7 @@
       $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
       $args = array(
           'post_type' => $post_type_name,// 投稿タイプ
-          'posts_per_page' => 10,// 1ページあたりの投稿数
+          'posts_per_page' => 50,// 1ページあたりの投稿数
           'post_status' => 'publish',// 公開済みの投稿のみ
           'orderby' => 'modified',// 更新日で並べ替え
           'order' => 'DESC',// 降順
@@ -45,22 +45,36 @@
         <li class="p-archive-post__item">
           <a href="<?php echo esc_url(get_permalink()); ?>" class="p-archive-post__link">
             <div class="p-archive-post__image">
-              <?php
-                if (has_post_thumbnail()) : // サムネイル画像があるか確認
-                    the_post_thumbnail(
-                      'thumbnail', // サムネイル画像のサイズ（thumbnailはWordPress標準のサイズ）
-                      array('alt' =>get_the_title(),
-                      'class' => 'p-archive-post__thumbnail'
-                      )
-                    ); 
-                else :
-                  echo '<img
-                    src="'. $thumbnail_url .'"
-                    alt=""
+              <?php $image = get_field('image'); ?>
+              <?php if($image) : ?>
+                <?php $mime_type = $image['mime_type']; ?>
+                <?php  if(strpos($mime_type, 'video') !== false) : ?>
+                  <video 
+                    autoplay
+                    muted
+                    loop
+                    controls 
+                    width="100%" 
+                    preload="metadata"
+                    playsinline>
+                    <source src="<?php echo esc_url($image['url']); ?>" type="video/mp4">
+                    お使いのブラウザは動画プレーヤーをサポートしていません。
+                  </video>
+                  
+                <?php elseif(strpos($mime_type, 'image') !== false) : ?>
+                  <img
+                    src="<?php echo esc_url($image['url']); ?>"
+                    alt="<?php echo esc_attr($image['alt']); ?>"
                     class="p-archive-post__thumbnail"
-                  />'; 
-                endif;
-              ?>
+                  /> 
+                <?php endif; ?>
+              <?php else : ?>
+                <img
+                  src="http://pumi-webcoder.com/wp-content/uploads/2024/07/coding.webp"
+                  alt="コードストックのサムネイル"
+                  class="p-archive-post__thumbnail"
+                />
+              <?php endif; ?>
             </div>
             <div class="p-archive-post__content">
               <?php $term_name = get_the_terms(get_the_ID(), $taxonomy_name);

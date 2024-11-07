@@ -4,7 +4,8 @@
   margin-top: 0 !important;
   text-align: center;
   &__container {
-    max-width: 800px;
+    // max-width: 800px;
+    max-width: revert !important;
   }
 
   &__list {
@@ -21,12 +22,14 @@
     // display: flex;
     // border-bottom: 1px solid #ddd;
     // padding: 1rem 0;
-    background: #ddd;
-    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.2);
+    //  #ddd;
+    // opacity: 0.8;
     @media (hover: hover) {
       &:hover {
         // background: #ccc;
         opacity: 1;
+        background: rgba(0, 0, 0, 0.1);
       }
     }
   }
@@ -43,11 +46,17 @@
     flex: 0 0 150px;
     height: 150px;
     margin-right: 1rem;
-    .code-result {
+    img,
+    video {
       width: 100%;
       height: 100%;
-      object-fit: fill;
+      object-fit: cover;
     }
+    // .code-result {
+    //   width: 100%;
+    //   height: 100%;
+    //   object-fit: fill;
+    // }
   }
 
   &__thumbnail {
